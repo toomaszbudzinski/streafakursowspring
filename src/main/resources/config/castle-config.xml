@@ -6,7 +6,11 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <bean id="zamek" class="pl.strefakursow.kursspring.domain.Castle" init-method="build" destroy-method="tearDown">
-        <constructor-arg index="0" ref="jedi"/>
+        <constructor-arg index="0" ref="anakin"/>
         <property name="name" value="${my.castle.name:United}"/>
+    </bean>
+
+    <bean id="tournament" class="pl.strefakursow.kursspring.domain.Tournament">
+        <property name="jedi"  ref="quigonjin"/>
     </bean>
 </beans>

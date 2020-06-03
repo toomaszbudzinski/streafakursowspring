@@ -9,8 +9,20 @@
     <context:component-scan base-package="pl.strefakursow"/>
     <context:property-placeholder location="classpath:castle.properties"/>
     <import resource="classpath:config/castle-config.xml"/>
-    <bean id="quest" class="pl.strefakursow.kursspring.domain.Quest"/> <!--@Component-->
-    <bean id="jedi" class="pl.strefakursow.kursspring.domain.Jedi"> <!--@component-->
+    <bean id="quest" class="pl.strefakursow.kursspring.domain.Quest" scope="prototype"/> <!--@Component-->
+    <bean id="jedi" class="pl.strefakursow.kursspring.domain.Jedi" scope="prototype"> <!--@component-->
+        <constructor-arg index="0" value="Yoda"/><!--@Autowired-->
+        <constructor-arg index="1" value="100"/>
+        <property name="quest" ref="quest"/> <!--ustawiania zależności, setJediQuest -->
+    </bean>
+
+    <bean id="anakin" class="pl.strefakursow.kursspring.domain.Jedi" scope="prototype" primary="true"> <!--@component-->
+        <constructor-arg index="0" value="Yoda"/><!--@Autowired-->
+        <constructor-arg index="1" value="100"/>
+        <property name="quest" ref="quest"/> <!--ustawiania zależności, setJediQuest -->
+    </bean>
+
+    <bean id="quigonjin" class="pl.strefakursow.kursspring.domain.Jedi" scope="prototype"> <!--@component-->
         <constructor-arg index="0" value="Yoda"/><!--@Autowired-->
         <constructor-arg index="1" value="100"/>
         <property name="quest" ref="quest"/> <!--ustawiania zależności, setJediQuest -->

@@ -24,7 +24,7 @@ public class Jedi {
     public Jedi() {
         this.name = "yoda";
         this.age = 100;
-        System.out.println("JediConstructor");
+        System.out.println("Jedi.class - " + "JediConstructor");
     }
 
     @Override
@@ -42,7 +42,7 @@ public class Jedi {
 
     @Autowired
     public void setQuest(Quest quest) {
-        System.out.println("setJediQuest: Ustawienie zadania");
+        System.out.println("Jedi.class - " + "setJediQuest: Ustawienie zadania");
         this.quest = quest;
     }
 
